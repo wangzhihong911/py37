@@ -91,7 +91,7 @@ def getURL_CODE(web_url, incode):
     ua_headers = {"User-Agent": getIE()}
     response = requests.get(web_url, headers=ua_headers, proxies=proxy)
     response.encoding = incode
-    print('获得请求头完毕')
+    #print('获得请求头完毕')
     return response.text
 
 
