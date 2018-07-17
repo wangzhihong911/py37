@@ -1,7 +1,7 @@
 #!/usr/bin/dev python
 # coding=utf-8
 import urllib;
-import BsDI;
+from pyDEV import BsDI
 
 
 def create_file(_inname, _inlocal):

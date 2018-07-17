@@ -1,13 +1,12 @@
 #!/usr/bin/dev python
 # coding=utf-8
 #让爬虫等待几秒
-import BsDI
+from pyDEV import BsDI, ToolDI
 import os
-import ToolDI
 
 #创建入口url
 url_web = "https://www.sxtp.net/meinv/siwa/"
-html = BsDI.getURL_CODE(url_web,'utf-8')
+html = BsDI.getURL_CODE(url_web, 'utf-8')
 soup = BsDI.get_htmlInfo(html)
 
 html_body = soup.select('body')
@@ -22,7 +21,7 @@ for tag in html_li:
     htm_count = htm_em.replace(str('张'),'') #得到张数
     print(htm_count)
     #break
-    path=ToolDI.create_file(html_tit,save_file)
+    path= ToolDI.create_file(html_tit, save_file)
     if not os.path.exists(path):
         os.mkdir(path) #创建目录
     os.chdir(path) #进入该目录
@@ -42,7 +41,7 @@ for tag in html_li:
         htm_p = htm_body.select("p")[0]
         htm_img = htm_p.select("img")
         # 进入子目录,保存图片
-        ToolDI.down_img(htm_img, path,inner)
+        ToolDI.down_img(htm_img, path, inner)
     #python3默认使用utf-8  所以不在需要转码
     print('%s%s%s' % ('文件夹:', html_tit, '执行完毕'))
 print('结束')
